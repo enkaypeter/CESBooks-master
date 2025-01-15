@@ -1,9 +1,8 @@
-version: '2'
 
 networks:
   default:
     external: true
-    name: finance_default
+    name: finance-master_default
 
 services:
 
@@ -31,7 +30,7 @@ services:
 
 
   libraryapp:
-    image: redyelruc/ces-books:4.0
+    image: ces-books:4.0
     environment:
       DATABASE: mysql://${DB_APPLICATION_USER}:${DB_APPLICATION_PASSWORD}@librarydb:3306/${DB_NAME}
     networks:
