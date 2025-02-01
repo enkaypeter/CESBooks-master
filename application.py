@@ -47,8 +47,11 @@ Session(app)
 
 # Configure CS50 Library to use SQL database
 # db = SQL("mysql://redyelruc:financered180974finance@127.0.0.1:3309/finance")
-db = SQL(os.environ['DATABASE'])
-
+try:
+    db = SQL(os.environ['DATABASE'])
+    print("✅ DB connection successful")
+except Exception as e:
+    print(f"❌ DB Connection failed: {e}")
 
 @app.route('/api/register', methods=['POST'])
 def register():
